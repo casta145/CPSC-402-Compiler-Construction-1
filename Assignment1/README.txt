@@ -1,5 +1,5 @@
 1. IDENTIFYING INFORMATION
-A. Full Name: Rielle Dizon, Alfonso Alvarez, Cole Gotelli
+A. Full Name: Rielle Dizon, Alfonso Castanos, Cole Gotelli
 B. Student ID: 2288751
 C. Chapman Email: dizon110@mail.chapman.edu
 D. Course Number and Section: CPSC 402-01
