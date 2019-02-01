@@ -1,21 +1,3 @@
-'''
-def readABC(txtFile):
-    fileRead = open(txtFile, 'r')
-    # for loop to find the letter that occurs the most
-    for line in fileRead:
-        for character in line:
-            print (character)
-            if character.isalpha():
-                if character == 'a':
-                    print (line.index(character))
-                    if line[line.index(character)+1] == 'b':
-                        if line[line.index(character)+2] == 'c':
-                            return 'yes'
-    fileRead.close()
-    return 'no'
-'''
-
-
 def containA(txtFile):
     fileRead = open(txtFile, 'r')
     indexList = []
@@ -79,21 +61,39 @@ def containABC(txtFile):
 def containAApattern(txtFile):
     fileRead = open(txtFile, 'r')
     indexList = []
+    tempString = ''
     for line in fileRead:
         for index, character in enumerate(line):
             if character == 'a':
-                if line[index+1] == 'a':
-                    indexAdd = 0
-                    for x in line[index+1]:
-                        if x != 'a':
-                            break
-                        indexAdd += 1
-                    indexList.append(index+indexAdd+1)
+                tempString += character
+            else:
+                if 'aa' in tempString:  # no need for index+1 because it adds
+                    indexList.append(index)   # index after actual placement
+                tempString = ''
     fileRead.close()
     if indexList == []:
-        return "no ABC's"
+        return "no AA*AA's"
     else:
-        return "ABC's in indeces", indexList
+        return "AA*AA's in indeces", indexList
+
+
+'''def containAAB(txtFile):
+    fileRead = open(txtFile, 'r')
+    indexList = []
+    tempString = ''
+    for line in fileRead:
+        for index, character in enumerate(line):
+            if character == 'a':
+                tempString += character
+            else:
+                if 'aa' in tempString:
+                    indexList.append(index)
+                tempString = ''
+    fileRead.close()
+    if indexList == []:
+        return "no AA*AA's"
+    else:
+        return "AA*AA's in indeces", indexList'''
 
 
 # begin main
@@ -102,12 +102,3 @@ print(containAB('assg1test.txt'))
 print(containAA('assg1test.txt'))
 print(containABC('assg1test.txt'))
 print(containAApattern('assg1test.txt'))
-
-'''
-string = 'abbccabc'
-indexList = []
-for index, character in enumerate(string):
-    if character == 'a':
-        indexList.append(index)
-print (indexList)
-'''
