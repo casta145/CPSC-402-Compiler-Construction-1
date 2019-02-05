@@ -77,23 +77,21 @@ def containAApattern(txtFile):
         return "AA*AA's in indeces", indexList
 
 
-'''def containAAB(txtFile):
+def containAAB(txtFile):
     fileRead = open(txtFile, 'r')
     indexList = []
-    tempString = ''
     for line in fileRead:
         for index, character in enumerate(line):
             if character == 'a':
-                tempString += character
-            else:
-                if 'aa' in tempString:
-                    indexList.append(index)
-                tempString = ''
+                if line[index+1] == 'a':
+                    indexList.append(index+2)
+                    if line[index+2] == 'b':
+                        indexList.append(index+3)
     fileRead.close()
     if indexList == []:
-        return "no AA*AA's"
+        return "no AA's or AAB's"
     else:
-        return "AA*AA's in indeces", indexList'''
+        return "AA's/AAB's in indeces", indexList
 
 
 # begin main
@@ -102,3 +100,4 @@ print(containAB('assg1test.txt'))
 print(containAA('assg1test.txt'))
 print(containABC('assg1test.txt'))
 print(containAApattern('assg1test.txt'))
+print(containAAB('assg1test.txt'))
