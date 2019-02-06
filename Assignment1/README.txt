@@ -1,7 +1,7 @@
 1. IDENTIFYING INFORMATION
 A. Full Name: Rielle Dizon, Alfonso Castanos, Cole Gotelli
 B. Student ID: 2288751, 2283681
-C. Chapman Email: dizon110@mail.chapman.edu, casta145@mail.chapman.edu
+C. Chapman Email: dizon110@mail.chapman.edu, casta145@mail.chapman.edu, gotel100@mail.chapman.edu
 D. Course Number and Section: CPSC 402-01
 E. Assignment or Exercise Number: Assignment 1
 
