@@ -9,10 +9,15 @@ DFun.      Def ::= Type Id "(" [Arg] ")" "{" [Stm] "}" ;
 separator Arg "," ;
 terminator Stm "" ;
 
+DUsing.    Def ::= "using" QConst ";"    ;
+
+DTypDef.   Def ::= "typedef" Type Id ";" ;
+DDeclVar. Def ::= Type [Id] ";"    ;
+
 ADecl. Arg ::= Type Id ;
 AType. Arg ::= Type ;
 AConst. Arg ::= "const" Type Id ;
-AConstProt. Arg ::= "const" Type ;
+AConstType. Arg ::= "const" Type ;
 
 SDecl.  Stm ::= Declaration ";" ;
 
@@ -81,24 +86,13 @@ separator nonempty Elmt   "::" ;
 QuConst. QConst ::= [Elmt] ;
 QCElmt. Elmt ::= Id        ;
 
-
-
 TypInt.  Type ::= "int"   ;
 TypChar. Type ::= "char"  ;
 TypBool. Type ::= "bool"  ;
 TypVoid. Type ::= "void"  ;
 TypDoub. Type ::= "double";
+
 TypQC.   Type ::= QConst  ;
 TypAddr. Type ::= Type "&";
-
-
-DUsing.    Def ::= "using" QConst ";"    ;
-
-DTypDef.   Def ::= "typedef" Type Id ";" ;
-DDeclVar. Def ::= Type [Id] ";"    ;
-
-
-
-
 
 token Id (letter (letter | digit | '_')*) ;
