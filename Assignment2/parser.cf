@@ -12,6 +12,8 @@ terminator Stm "" ;
 DUsing.    Def ::= "using" QConst ";"    ;
 
 DTypDef.   Def ::= "typedef" Type Id ";" ;
+DTypDefVect. Def ::= "typedef" Type "<" [Type] ">" Id ;
+
 DDeclVar. Def ::= Type [Id] ";"    ;
 
 ADecl. Arg ::= Type Id ;
@@ -24,11 +26,16 @@ SDecl.  Stm ::= Declaration ";" ;
 DeclaSim. Declaration ::= Type [Id] ;
 DeclaConst. Declaration ::= "const" Type Id ;
 
+
 SExp. Stm ::= Exp ";" ;
 separator Exp "," ;
 
 SReturn. Stm ::= "return" Exp ";"                ;
 SWhile.  Stm ::= "while" "(" Exp ")" Stm         ;
+
+SDoWhi.  Stm ::= "do" Stm "while" "(" Exp ")" ";";
+SFor.    Stm ::= "for" "(" Declaration ";" Exp ";" Exp ")" Stm ;
+
 SBlock.  Stm ::= "{" [Stm] "}"                   ;
 SIfElse. Stm ::= "if" "(" Exp ")" Stm Contd      ;
 
@@ -75,6 +82,8 @@ EString.     Exp15 ::= [String]                ;
 EChar.       Exp15 ::= Char                    ;
 EDouble.     Exp15 ::= Double                  ;
 EInt.        Exp15 ::= Integer                 ;
+EPred.       Exp15 ::= Type Type               ;
+
 
 coercions Exp 15 ;
 
@@ -84,7 +93,9 @@ separator nonempty String ""   ;
 separator nonempty Elmt   "::" ;
 
 QuConst. QConst ::= [Elmt] ;
+
 QCElmt. Elmt ::= Id        ;
+QCElntt. Elmt ::= Id "<" [Type] ">" ;
 
 TypInt.  Type ::= "int"   ;
 TypChar. Type ::= "char"  ;
@@ -93,6 +104,6 @@ TypVoid. Type ::= "void"  ;
 TypDoub. Type ::= "double";
 
 TypQC.   Type ::= QConst  ;
-TypAddr. Type ::= Type "&";
+TypRef. Type ::= Type "&";
 
 token Id (letter (letter | digit | '_')*) ;
