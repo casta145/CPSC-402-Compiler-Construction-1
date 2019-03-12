@@ -6,6 +6,7 @@ comment "/*" "*/" ;
 comment "#"       ;
 
 DFun.      Def ::= Type Id "(" [Arg] ")" "{" [Stm] "}" ;
+DFunc.     Def ::= Type Id "(" [Arg] ")" ";" ;
 separator Arg "," ;
 terminator Stm "" ;
 
@@ -22,6 +23,7 @@ AConst. Arg ::= "const" Type Id ;
 AConstType. Arg ::= "const" Type ;
 
 SDecl.  Stm ::= Declaration ";" ;
+SInit.  Stm ::= Declaration "=" Exp ";" ;
 
 DeclaSim. Declaration ::= Type [Id] ;
 DeclaConst. Declaration ::= "const" Type Id ;
@@ -97,12 +99,12 @@ QuConst. QConst ::= [Elmt] ;
 QCElmt. Elmt ::= Id        ;
 QCElntt. Elmt ::= Id "<" [Type] ">" ;
 
+
 TypInt.  Type ::= "int"   ;
 TypChar. Type ::= "char"  ;
 TypBool. Type ::= "bool"  ;
 TypVoid. Type ::= "void"  ;
 TypDoub. Type ::= "double";
-
 TypQC.   Type ::= QConst  ;
 TypRef. Type ::= Type "&";
 
