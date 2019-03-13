@@ -36,7 +36,7 @@ SReturn. Stm ::= "return" Exp ";"                ;
 SWhile.  Stm ::= "while" "(" Exp ")" Stm         ;
 
 SDoWhi.  Stm ::= "do" Stm "while" "(" Exp ")" ";";
-SFor.    Stm ::= "for" "(" Declaration ";" Exp ";" Exp ")" Stm ;
+SFor.    Stm ::= "for" "(" Stm Exp ";" Exp ")" Stm ;
 
 SBlock.  Stm ::= "{" [Stm] "}"                   ;
 SIfElse. Stm ::= "if" "(" Exp ")" Stm Contd      ;
