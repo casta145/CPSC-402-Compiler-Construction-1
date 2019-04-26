@@ -3,10 +3,10 @@ import CPP.*;
 import CPP.Absyn.*;
 import java.io.*;
 
-public class lab2 {
+public class assg3 {
     public static void main(String args[]) {
         if (args.length != 1) {
-            System.err.println("Usage: lab2 <SourceFile>");
+            System.err.println("Usage: assg3 <SourceFile>");
             System.exit(1);
         }
 
