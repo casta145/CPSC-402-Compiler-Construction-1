@@ -13,13 +13,13 @@ CUPFILE = CPP/_cup.cup
 # Older BNFC versions may need:
 # CUPFILE = CPP/CPP.cup
 
-# Choose one of the following definitions of variable tarlab2:
+# Choose one of the following definitions of variable tarassg3:
 
 # GNU tar syntax (Linux)
-tarlab2=tar --transform='s,^,lab2/,'
+tarassg3=tar --transform='s,^,assg3/,'
 
 # BSD tar syntax (Mac OS X)
-# tarlab2=tar -s',^,lab2/,'
+# tarassg3=tar -s',^,assg3/,'
 
 # Note:
 # The --transform option is only supported by GNU tar.
@@ -32,7 +32,7 @@ tarlab2=tar --transform='s,^,lab2/,'
 .PHONY: bnfc sdist clean distclean vclean
 
 # As first goal is default goal, this goal needs to remain first.
-all: bnfc lab2.class
+all: bnfc assg3.class
 
 %.class: %.java
 	${JAVAC} ${JAVAC_FLAGS} $<
@@ -45,10 +45,10 @@ bnfc:
 
 # Rules for shipping the solution:
 
-sdist: lab2.tar.gz
+sdist: assg3.tar.gz
 
-lab2.tar.gz: CPP.cf Makefile lab2 lab2.java Interpreter.java TypeChecker.java TypeException.java
-	$(tarlab2) -czhf $@ $^
+assg3.tar.gz: CPP.cf Makefile assg3 assg3.java Interpreter.java TypeChecker.java TypeException.java
+	$(tarassg3) -czhf $@ $^
 
 # Rules for cleaning generated files:
 
@@ -64,6 +64,6 @@ vclean: clean
 	 -rmdir -p CPP/
 
 distclean: vclean
-	-rm -f lab2.tar.gz
+	-rm -f assg3.tar.gz
 
 # EOF
