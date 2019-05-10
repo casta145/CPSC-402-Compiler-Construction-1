@@ -1,5 +1,4 @@
-// PLT lab 3 in Java:
-// Annotating type checker for C-- and compiler to symbolic JVM assembly.
+
 
 import java.io.*;
 import java_cup.runtime.*;
