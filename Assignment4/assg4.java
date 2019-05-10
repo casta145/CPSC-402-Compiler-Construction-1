@@ -59,7 +59,7 @@ public class assg4 {
       System.exit(-1);
     }
     catch (IOException e) {
-      System.err.println(e.toString());
+      //System.err.println(e.toString());
       System.exit(1);
     }
     catch (Throwable e) {
