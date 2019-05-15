@@ -22,7 +22,7 @@ public class assg3 {
             new TypeChecker().typecheck(parse_tree);
             //System.out.println("5");
             new Interpreter().interpret(parse_tree);
-            //System.out.println("6");
+            System.out.println("File Read Successful");
 
         } catch (TypeException e) {
             System.out.println("TYPE ERROR");
